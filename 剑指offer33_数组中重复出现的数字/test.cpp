@@ -83,7 +83,7 @@ public:
 //	return -1;
 //}
 
-class Solution {
+class Solution3 {
 public:
 	// Parameters:
 	//        numbers:     an array of integers
@@ -111,6 +111,38 @@ public:
 			numbers[index] = numbers[index] + length;
 		}
 		return false;
+	}
+};
+
+class Solution {
+public:
+	// Parameters:
+	//        numbers:     an array of integers
+	//        length:      the length of array numbers
+	//        duplication: (Output) the duplicated number in the array number
+	// Return value:       true if the input is valid, and there are some duplications in the array number
+	//                     otherwise false
+	bool duplicate(int numbers[], int length, int* duplication) {
+		if (numbers == nullptr || length <= 0){
+			return false;
+		}
+		if (duplication == nullptr){
+			return false;
+		}
+		int i = 0;
+		for (i = 0; i < length; ++i){
+			int index = numbers[i];
+			if (index >= length){
+				index -= length;//保证将数组中的所有位置都设置了，保证index不超过length
+			}
+			if (numbers[index] >= length){
+				duplication[0] = index;
+				return true;
+			}
+			numbers[index] += numbers[index] + length;
+			//将index的对应位置设置标记，
+			//当再次遇到numbers[index]如果大于length时返回true
+		}
 	}
 };
 
