@@ -34,7 +34,12 @@ public:
 };
 
 void TestFunc(){
-
+	int array[] = { 2, 3, 1, 0, 2, 5, 3 };
+	int length = sizeof(array) / sizeof(array[0]);
+	Solution s;
+	int *duplication = nullptr;
+	cout << s.duplicate(array, length, duplication) << endl;
+	cout << "重复出现的数字为：" << endl;
 }
 
 int main(){
