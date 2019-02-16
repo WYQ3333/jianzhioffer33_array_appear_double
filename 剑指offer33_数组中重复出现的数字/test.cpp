@@ -38,8 +38,11 @@ void TestFunc(){
 	int length = sizeof(array) / sizeof(array[0]);
 	Solution s;
 	int *duplication = nullptr;
+	duplication = new int;
 	cout << s.duplicate(array, length, duplication) << endl;
 	cout << "重复出现的数字为：" << endl;
+	cout << *duplication << endl;
+	delete duplication;
 }
 
 int main(){
